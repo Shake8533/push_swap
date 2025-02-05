@@ -30,15 +30,13 @@ int		has_duplicate(t_stack *stack, int value);
 void	parse_args(int argc, char **argv, t_stack **a);
 int		pop(t_stack **stack);
 int		is_sorted(t_stack *stack);
-void	sa(t_stack **a, t_stack **b);
+void	sa(t_stack **a);
 void	pb(t_stack **a, t_stack **b);
 void	pa(t_stack **a, t_stack **b);
-void	ra(t_stack **a, t_stack **b);
+void	ra(t_stack **a);
 void	push_min_to_b(t_stack **a, t_stack **b);
 void	retrieve_sorted(t_stack **a, t_stack **b);
 void	sort_stack(t_stack **a, t_stack **b);
 void	free_stack(t_stack **stack);
-void	print_stacks(t_stack *a, t_stack *b, const char *operation);
-void	print_stack(t_stack *stack);
 
 #endif

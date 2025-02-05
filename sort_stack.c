@@ -39,9 +39,9 @@ void	push_min_to_b(t_stack **a, t_stack **b)
 	while ((*a)->value != min)
 	{
 		if ((*a)->next && (*a)->value > (*a)->next->value)
-			sa(a, b);
+			sa(a);
 		else
-			ra(a, b);
+			ra(a);
 	}
 	pb(a, b);
 }

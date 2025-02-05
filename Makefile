@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = free_stack.c print_push_swap.c push_swap.c sort_stack.c stack_operations.c verif.c
+SRC = free_stack.c push_swap.c sort_stack.c stack_operations.c verif.c
 OBJ = $(SRC:.c=.o)
 NAME = push_swap
 

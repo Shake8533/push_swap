@@ -37,7 +37,6 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	parse_args(argc, argv, &a);
-	print_stacks(a, b, "");
 	sort_stack(&a, &b);
 	free_stack(&a);
 	free_stack(&b);

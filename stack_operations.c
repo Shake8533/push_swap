@@ -11,8 +11,9 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "libft/ft_printf.h"
 
-void	sa(t_stack **a, t_stack **b)
+void	sa(t_stack **a)
 {
 	t_stack	*first;
 	t_stack	*second;
@@ -24,7 +25,7 @@ void	sa(t_stack **a, t_stack **b)
 	first->next = second->next;
 	second->next = first;
 	*a = second;
-	print_stacks(*a, *b, "sa");
+	ft_printf("sa\n");
 }
 
 void	pb(t_stack **a, t_stack **b)
@@ -32,7 +33,7 @@ void	pb(t_stack **a, t_stack **b)
 	if (!*a)
 		return ;
 	push(b, pop(a));
-	print_stacks(*a, *b, "pb");
+	ft_printf("pb\n");
 }
 
 void	pa(t_stack **a, t_stack **b)
@@ -40,10 +41,10 @@ void	pa(t_stack **a, t_stack **b)
 	if (!*b)
 		return ;
 	push(a, pop(b));
-	print_stacks(*a, *b, "pa");
+	ft_printf("pa\n");
 }
 
-void	ra(t_stack **a, t_stack **b)
+void	ra(t_stack **a)
 {
 	t_stack	*first;
 	t_stack	*last;
@@ -57,5 +58,5 @@ void	ra(t_stack **a, t_stack **b)
 	*a = first->next;
 	first->next = NULL;
 	last->next = first;
-	print_stacks(*a, *b, "ra");
+	ft_printf("ra\n");
 }
