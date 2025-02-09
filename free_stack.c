@@ -12,10 +12,10 @@
 
 #include "push_swap.h"
 
-int	pop(t_stack **stack)
+int	pop(t_list **stack)
 {
 	int		value;
-	t_stack	*temp;
+	t_list	*temp;
 
 	if (!*stack)
 		return (0);
@@ -26,7 +26,7 @@ int	pop(t_stack **stack)
 	return (value);
 }
 
-void	free_stack(t_stack **stack)
+void	free_stack(t_list **stack)
 {
 	while (*stack)
 		pop(stack);

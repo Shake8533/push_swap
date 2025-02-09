@@ -41,14 +41,14 @@ int	is_nbr(char *str)
 	return (1);
 }
 
-void	error_exit(t_stack **a)
+void	error_exit(t_list **a)
 {
 	write(2, "Error\n", 6);
 	free_stack(a);
 	exit(EXIT_FAILURE);
 }
 
-int	has_duplicate(t_stack *stack, int value)
+int	has_duplicate(t_list *stack, int value)
 {
 	while (stack)
 	{
@@ -59,7 +59,7 @@ int	has_duplicate(t_stack *stack, int value)
 	return (0);
 }
 
-void	parse_args(int argc, char **argv, t_stack **a)
+void	parse_args(int argc, char **argv, t_list **a)
 {
 	int	value;
 
