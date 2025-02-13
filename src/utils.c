@@ -12,6 +12,19 @@
 
 #include "push_swap.h"
 
+int	count_nodes(t_stack *head)
+{
+	int	i;
+
+	i = 0;
+	while (head != NULL)
+	{
+		head = head->next;
+		i++;
+	}
+	return (i);
+}
+
 void	free_stack(t_stack **head)
 {
 	t_stack	*tmp;
@@ -23,4 +36,3 @@ void	free_stack(t_stack **head)
 		free(tmp);
 	}
 }
-

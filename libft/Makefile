@@ -1,7 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-NAME_PRINTF = libftprintf.a
 SRC_PRINTF = ft_printf.c ft_printf_utils.c
 OBJ_PRINTF = $(SRC_PRINTF:.c=.o)
 
@@ -16,13 +15,10 @@ SRCS_LIBFT = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
              ft_putendl_fd.c ft_putnbr_fd.c
 OBJ_LIBFT = $(SRCS_LIBFT:.c=.o)
 
-all: $(NAME_LIBFT) $(NAME_PRINTF)
+all: $(NAME_LIBFT)
 
-$(NAME_PRINTF): $(OBJ_PRINTF)
-	ar rcs $(NAME_PRINTF) $(OBJ_PRINTF)
-
-$(NAME_LIBFT): $(OBJ_LIBFT)
-	ar rcs $(NAME_LIBFT) $(OBJ_LIBFT)
+$(NAME_LIBFT): $(OBJ_LIBFT) $(OBJ_PRINTF)
+	ar rcs $(NAME_LIBFT) $(OBJ_LIBFT) $(OBJ_PRINTF)
 
 %.o: %.c ft_printf.h ft_libft.h
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -31,7 +27,7 @@ clean:
 	rm -f $(OBJ_PRINTF) $(OBJ_LIBFT)
 
 fclean: clean
-	rm -f $(NAME_PRINTF) $(NAME_LIBFT)
+	rm -f $(NAME_LIBFT)
 
 re: fclean all
 
