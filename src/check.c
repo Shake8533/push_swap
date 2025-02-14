@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_check.c                                      :+:      :+:    :+:   */
+/*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: palefebv <palefebv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 00:40:01 by palefebv          #+#    #+#             */
-/*   Updated: 2025/02/11 02:00:47 by palefebv         ###   ########.fr       */
+/*   Updated: 2025/02/14 01:20:24 by palefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,9 @@ void	parse_args(int argc, char **argv, t_stack **a)
 
 	while (--argc)
 	{
-		if (!is_nbr(argv[argc]))
+		if (!is_nbr(argv[argc]) || ft_strlen(argv[argc]) > 11)
 			error_exit(a);
-	value = ft_atoi(argv[argc]);
+		value = ft_atoi(argv[argc]);
 		if (has_duplicate(*a, (int)value))
 			error_exit(a);
 		push(a, value);

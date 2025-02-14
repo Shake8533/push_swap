@@ -1,47 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: palefebv <palefebv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/11 01:57:59 by palefebv          #+#    #+#             */
-/*   Updated: 2025/02/14 01:32:21 by palefebv         ###   ########.fr       */
+/*   Created: 2025/02/14 01:27:35 by palefebv          #+#    #+#             */
+/*   Updated: 2025/02/14 01:29:10 by palefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "../libft/ft_printf.h"
 
-void	swap(t_stack **stack)
+void	rotate(t_stack **stack)
 {
 	t_stack	*first;
-	t_stack	*second;
+	t_stack	*last;
 
-	if (!*stack && !(*stack)->next)
+	if (!*stack || !(*stack)->next)
 		return ;
 	first = *stack;
-	second = first->next;
-	first->next = second->next;
-	second->next = first;
-	*stack = second;
+	last = *stack;
+	while (last->next)
+		last = last->next;
+	*stack = first->next;
+	first->next = NULL;
+	last->next = first;
 }
 
-void	sa(t_stack **a)
+void	ra(t_stack **a)
 {
-	swap(a);
-	ft_printf("sa\n");
+	rotate(a);
+	ft_printf("ra\n");
 }
 
-void	sb(t_stack **b)
+void	rb(t_stack **b)
 {
-	swap(b);
-	ft_printf("sb\n");
+	rotate(b);
+	ft_printf("rb\n");
 }
 
-void	ss(t_stack **a, t_stack **b)
+void	rr(t_stack **a, t_stack **b)
 {
-	swap(a);
-	swap(b);
-	ft_printf("ss\n");
+	rotate(a);
+	rotate(b);
+	ft_printf("rr\n");
 }

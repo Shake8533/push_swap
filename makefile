@@ -12,8 +12,9 @@ SRC_PUSH_SWAP =	./src/utils.c \
 				./src/rev_rotate.c \
 				./src/check.c \
 				./src/sort_util.c \
-				./src/push_rotate.c \
-				./src/swap.c
+				./src/push.c \
+				./src/swap.c\
+				./src/rotate.c
 OBJ_PUSH_SWAP = $(SRC_PUSH_SWAP:.c=.o)
 
 all: $(NAME_PUSH_SWAP)
