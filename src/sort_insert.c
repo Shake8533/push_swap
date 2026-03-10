@@ -1,43 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_util.c                                        :+:      :+:    :+:   */
+/*   sort_insert.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: palefebv <palefebv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 00:41:21 by palefebv          #+#    #+#             */
-/*   Updated: 2026/03/10 05:38:05 by palefebv         ###   ########.fr       */
+/*   Updated: 2026/03/10 05:25:23 by palefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_biggest(t_stack *stack)
+static void	apply_insert(t_stack **a, t_stack **b, int chosen)
 {
-	int		big;
-	t_stack	*tmp;
+	int	b_pos;
+	int	a_pos;
 
-	big = INT_MIN;
-	tmp = stack;
-	while (tmp)
-	{
-		if (tmp->index > big)
-			big = tmp->index;
-		tmp = tmp->next;
-	}
-	return (big);
+	b_pos = pos_of(*b, chosen);
+	a_pos = target_in_a(*a, chosen);
+	do_combined(a, b, b_pos, a_pos);
+	bring_top_b(b, pos_of(*b, chosen));
+	bring_top_a(a, target_in_a(*a, chosen));
+	pa(a, b);
 }
 
-int	sorted(t_stack **stack)
+void	insert_max_first(t_stack **a, t_stack **b)
 {
-	t_stack	*tmp;
+	while (*b)
+		apply_insert(a, b, max_idx(*b));
+}
 
-	tmp = *stack;
-	while (tmp && tmp->next)
-	{
-		if (tmp->index > tmp->next->index)
-			return (0);
-		tmp = tmp->next;
-	}
-	return (1);
+void	insert_greedy(t_stack **a, t_stack **b)
+{
+	while (*b)
+		apply_insert(a, b, best_to_insert(*b, *a));
 }

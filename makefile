@@ -9,6 +9,12 @@ MAKE = make --no-print-directory
 SRC_PUSH_SWAP =	./src/utils.c \
 				./src/push_swap.c \
 				./src/sort_stack.c \
+				./src/sort_chunk.c \
+				./src/sort_cost.c \
+				./src/sort_insert_util.c \
+				./src/sort_insert.c \
+				./src/sort_util2.c \
+				./src/sort_util3.c \
 				./src/rev_rotate.c \
 				./src/check.c \
 				./src/sort_util.c \
