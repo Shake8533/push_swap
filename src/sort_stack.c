@@ -6,9 +6,10 @@
 /*   By: palefebv <palefebv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 00:40:59 by palefebv          #+#    #+#             */
-/*   Updated: 2025/02/19 00:18:28 by palefebv         ###   ########.fr       */
+/*   Updated: 2026/03/10 04:46:45 by palefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	stack_size(t_stack *s)
